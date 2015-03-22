@@ -6,6 +6,9 @@ Instead of of adding development requirements to any project, we have decided to
 # links
 
 * http://www.squizlabs.com/php-codesniffer
+    * https://github.com/squizlabs/PHP_CodeSniffer/wiki/
+    * https://github.com/squizlabs/PHP_CodeSniffer/wiki/Coding-Standard-Tutorial
 * https://phpunit.de/
 * http://pdepend.org/
 * http://phpmd.org/
+* https://github.com/Qafoo/review
