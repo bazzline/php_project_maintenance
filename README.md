@@ -11,4 +11,6 @@ Instead of of adding development requirements to any project, we have decided to
 * https://phpunit.de/
 * http://pdepend.org/
 * http://phpmd.org/
+* https://github.com/sebastianbergmann/phploc
+* https://github.com/sebastianbergmann/phpcpd
 * https://github.com/Qafoo/review
