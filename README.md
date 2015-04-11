@@ -5,6 +5,8 @@ Instead of of adding development requirements to any project, we have decided to
 
 # links
 
+## used tools
+
 * http://www.squizlabs.com/php-codesniffer
     * https://github.com/squizlabs/PHP_CodeSniffer/wiki/
     * https://github.com/squizlabs/PHP_CodeSniffer/wiki/Coding-Standard-Tutorial
@@ -13,4 +15,8 @@ Instead of of adding development requirements to any project, we have decided to
 * http://phpmd.org/
 * https://github.com/sebastianbergmann/phploc
 * https://github.com/sebastianbergmann/phpcpd
+
+## see also
+
+* http://phpqatools.org/
 * https://github.com/Qafoo/review
