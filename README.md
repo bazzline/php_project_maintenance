@@ -5,7 +5,7 @@ Instead of of adding development requirements to any project, we have decided to
 
 
 The versioneye status is:
-[![Dependency Status](https://www.versioneye.com/user/projects/555394ead4e5d2e78a200004e/badge.svg?style=flat)](https://www.versioneye.com/user/projects/555394ead4e5d2e78a200004e)
+[![Dependency Status](https://www.versioneye.com/user/projects/555394ead4e5d2e78a200004e/badge.svg?style=flat)](https://www.versioneye.com/user/projects/555394ead4e5d2e78a200004e)]
 
 # links
 
