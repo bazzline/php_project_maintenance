@@ -1,0 +1,16 @@
+#!/bin/bash
+# @see https://stackoverflow.com/questions/18884992/how-do-i-assign-ls-to-an-array-in-linux-bash
+
+shopt -s nullglob
+array=(*/)
+shopt -u nullglob
+
+for entry in ${array[@]}; do
+    if [ -d "$entry/.git" ]; then
+        echo "$entry"
+        cd "$entry"
+        git pull
+        git fetch origin
+        cd ..
+    fi
+done;
