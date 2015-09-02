@@ -19,6 +19,7 @@ The versioneye status is:
 * http://phpmd.org/
 * https://github.com/sebastianbergmann/phploc
 * https://github.com/sebastianbergmann/phpcpd
+* https://github.com/stevleibelt/compify/blob/master/compify.phar
 
 ## see also
 

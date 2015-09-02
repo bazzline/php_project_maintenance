@@ -1,6 +1,10 @@
 #!/bin/bash
 # @see https://stackoverflow.com/questions/18884992/how-do-i-assign-ls-to-an-array-in-linux-bash
 
+SCRIPT_PATH=$(cd $(dirname "${BASH_SOURCE[0]}"); pwd)
+
+PATH_TO_COMPIFY=$SCRIPT_PATH'/../bin/compify.phar'
+
 shopt -s nullglob
 array=(*/)
 shopt -u nullglob
@@ -11,6 +15,7 @@ for entry in ${array[@]}; do
         cd "$entry"
         git pull
         git fetch origin
+        php $PATH_TO_COMPIFY crush
         cd ..
     fi
 done;
