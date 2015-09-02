@@ -2,12 +2,13 @@
 # @see https://stackoverflow.com/questions/18884992/how-do-i-assign-ls-to-an-array-in-linux-bash
 
 SCRIPT_PATH=$(cd $(dirname "${BASH_SOURCE[0]}"); pwd)
-
-PATH_TO_COMPIFY=$SCRIPT_PATH'/../bin/compify.phar'
+PATH_TO_BINARY=$SCRIPT_PATH'/../bin'
 
 shopt -s nullglob
 array=(*/)
 shopt -u nullglob
+
+php $PATH_TO_BINARY'/composer.phar' selfupdate
 
 for entry in ${array[@]}; do
     if [ -d "$entry/.git" ]; then
@@ -15,8 +16,11 @@ for entry in ${array[@]}; do
         cd "$entry"
         git pull
         git fetch origin
+        if [ -f "entry/composer.json" ]; then
+            php $PATH_TO_BINARY'/composer.phar' update
+        fi
         if [ -d "entry/vendor" ]; then
-            php $PATH_TO_COMPIFY crush
+            php $PATH_TO_BINARY'/compify.phar' crush
         fi
         cd ..
     fi
