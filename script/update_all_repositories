@@ -15,7 +15,9 @@ for entry in ${array[@]}; do
         cd "$entry"
         git pull
         git fetch origin
-        php $PATH_TO_COMPIFY crush
+        if [ -d "entry/vendor" ]; then
+            php $PATH_TO_COMPIFY crush
+        fi
         cd ..
     fi
 done;
