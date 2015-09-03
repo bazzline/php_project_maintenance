@@ -19,12 +19,18 @@ for CURRENT_WORKING_DIRECTORY in ${DIRECTORIES[@]}; do
         cd "$POSSIBLE_REPOSITORY_PATH"
         /bin/env git pull
         if [ $? -gt 0 ]; then
+            echo -e "\e[41m" #set background to bold red: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+            echo ''
             echo 'something went wrong when executing "git pull", exit code "'$?'" returned'
+            echo -e "\e[0m" #reset font
             return 1
         fi
         /bin/env git fetch origin
         if [ $? -gt 0 ]; then
+            echo -e "\e[41m" #set background to bold red: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+            echo ''
             echo 'something went wrong when executing "git fetch origin", exit code "'$?'" returned'
+            echo -e "\e[0m" #reset font
             return 1
         fi
 
@@ -34,13 +40,19 @@ for CURRENT_WORKING_DIRECTORY in ${DIRECTORIES[@]}; do
                 #this fact has to be communicated!
                 /bin/env rm -fr $POSSIBLE_REPOSITORY_PATH'vendor'
                 if [ $? -gt 0 ]; then
+                    echo -e "\e[41m" #set background to bold red: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+                    echo ''
                     echo 'something went wrong when executing "rm -fr <path>/vendor", exit code "'$?'" returned'
+                    echo -e "\e[0m" #reset font
                     return 1
                 fi
             fi
             /bin/env php $PATH_TO_BINARY'/composer.phar' update
             if [ $? -gt 0 ]; then
+                echo -e "\e[41m" #set background to bold red: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+                echo ''
                 echo 'something went wrong when executing "composer update", exit code "'$?'" returned'
+                echo -e "\e[0m" #reset font
                 return 1
             fi
         fi
@@ -48,7 +60,10 @@ for CURRENT_WORKING_DIRECTORY in ${DIRECTORIES[@]}; do
             echo 'vendor found'
             /bin/env php $PATH_TO_BINARY'/compify.phar' crush
             if [ $? -gt 0 ]; then
+                echo -e "\e[41m" #set background to bold red: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+                echo ''
                 echo 'something went wrong when executing "compify update", exit code "'$?'" returned'
+                echo -e "\e[0m" #reset font
                 return 1
             fi
         fi
