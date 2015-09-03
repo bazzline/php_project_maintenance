@@ -21,6 +21,11 @@ for CURRENT_WORKING_DIRECTORY in ${DIRECTORIES[@]}; do
         git fetch origin
 
         if [ -f $POSSIBLE_REPOSITORY_PATH'composer.json' ]; then
+            if [ -d $POSSIBLE_REPOSITORY_PATH'vendor' ]; then
+                #we have to remove the vendor since we manipulate the content later on with compify
+                #this fact has to be communicated!
+                rm -fr $POSSIBLE_REPOSITORY_PATH'vendor'
+            fi
             php $PATH_TO_BINARY'/composer.phar' update
         fi
         if [ -d $POSSIBLE_REPOSITORY_PATH'vendor' ]; then
