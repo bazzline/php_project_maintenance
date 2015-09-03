@@ -21,7 +21,7 @@ for CURRENT_WORKING_DIRECTORY in ${DIRECTORIES[@]}; do
         if [ "$?" != "0" ]; then
             echo -e "\e[41m" #set background to bold red: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
             echo ''
-            echo 'something went wrong when executing "git pull", exit code "'$?'" returned'
+            echo 'something went wrong when executing "git pull"'
             echo -e "\e[0m" #reset font
             exit 1
         fi
@@ -29,7 +29,7 @@ for CURRENT_WORKING_DIRECTORY in ${DIRECTORIES[@]}; do
         if [ "$?" != "0" ]; then
             echo -e "\e[41m" #set background to bold red: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
             echo ''
-            echo 'something went wrong when executing "git fetch origin", exit code "'$?'" returned'
+            echo 'something went wrong when executing "git fetch origin"'
             echo -e "\e[0m" #reset font
             exit 1
         fi
@@ -42,7 +42,7 @@ for CURRENT_WORKING_DIRECTORY in ${DIRECTORIES[@]}; do
                 if [ "$?" != "0" ]; then
                     echo -e "\e[41m" #set background to bold red: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
                     echo ''
-                    echo 'something went wrong when executing "rm -fr <path>/vendor", exit code "'$?'" returned'
+                    echo 'something went wrong when executing "rm -fr <path>/vendor"'
                     echo -e "\e[0m" #reset font
                     exit 1
                 fi
@@ -51,7 +51,7 @@ for CURRENT_WORKING_DIRECTORY in ${DIRECTORIES[@]}; do
             if [ "$?" != "0" ]; then
                 echo -e "\e[41m" #set background to bold red: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
                 echo ''
-                echo 'something went wrong when executing "composer update", exit code "'$?'" returned'
+                echo 'something went wrong when executing "composer update"'
                 echo -e "\e[0m" #reset font
                 exit 1
             fi
@@ -62,7 +62,7 @@ for CURRENT_WORKING_DIRECTORY in ${DIRECTORIES[@]}; do
             if [ "$?" != "0" ]; then
                 echo -e "\e[41m" #set background to bold red: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
                 echo ''
-                echo 'something went wrong when executing "compify update", exit code "'$?'" returned'
+                echo 'something went wrong when executing "compify update"'
                 echo -e "\e[0m" #reset font
                 exit 1
             fi
