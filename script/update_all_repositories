@@ -2,26 +2,31 @@
 # @see https://stackoverflow.com/questions/18884992/how-do-i-assign-ls-to-an-array-in-linux-bash
 
 SCRIPT_PATH=$(cd $(dirname "${BASH_SOURCE[0]}"); pwd)
+PATH_TO_CURRENT_DIRECTORY=$(pwd)
 PATH_TO_BINARY=$SCRIPT_PATH'/../bin'
 
 shopt -s nullglob
-array=(*/)
+DIRECTORIES=(*/)
 shopt -u nullglob
 
 php $PATH_TO_BINARY'/composer.phar' selfupdate
 
-for entry in ${array[@]}; do
-    if [ -d "$entry/.git" ]; then
-        echo "$entry"
-        cd "$entry"
+for CURRENT_WORKING_DIRECTORY in ${DIRECTORIES[@]}; do
+    POSSIBLE_REPOSITORY_PATH=$PATH_TO_CURRENT_DIRECTORY'/'$CURRENT_WORKING_DIRECTORY
+
+    if [ -d $POSSIBLE_REPOSITORY_PATH'.git' ]; then
+        echo "$CURRENT_WORKING_DIRECTORY"
+        cd "$POSSIBLE_REPOSITORY_PATH"
         git pull
         git fetch origin
-        if [ -f "entry/composer.json" ]; then
+
+        if [ -f $POSSIBLE_REPOSITORY_PATH'composer.json' ]; then
             php $PATH_TO_BINARY'/composer.phar' update
         fi
-        if [ -d "entry/vendor" ]; then
+        if [ -d $POSSIBLE_REPOSITORY_PATH'vendor' ]; then
+            echo 'vendor found'
             php $PATH_TO_BINARY'/compify.phar' crush
         fi
-        cd ..
+        cd "$PATH_TO_CURRENT_DIRECTORY"
     fi
 done;
