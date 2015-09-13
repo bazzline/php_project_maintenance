@@ -20,6 +20,7 @@ The versioneye status is:
 * https://github.com/sebastianbergmann/phploc
 * https://github.com/sebastianbergmann/phpcpd
 * https://github.com/stevleibelt/compify/blob/master/compify.phar
+* https://github.com/FriendsOfPHP/pickle/releases/download/v0.2.0/pickle.phar
 
 ## see also
 
