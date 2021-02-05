@@ -1,3 +1,7 @@
+# Full Stop
+
+I still like the idea but there is currently no use case to develop it anymore.
+
 # PHP Project Maintenance
 
 A collection of tools for php project maintenance.  
